@@ -55,12 +55,12 @@ def scrape_rank_player_team():
 
         i = i + 1
 
-def scrape_BuildStats():
+def scrape_StatsTable():
     i = 0
     table = soup.find('table', {'class': "Table Table--align-right"})
     for rows in table.find_all('tr'):   
-        datas = rows.find_all("td")[2:]
-        stats.append(datas)  
+        data = rows.find_all("td")[2:]
+        stats.append(data)  
         i = i + 1
 
 def write_Stats_in_excel():
@@ -82,7 +82,7 @@ write_header()
 
 scrape_rank_player_team()
 
-scrape_BuildStats()
+scrape_StatsTable()
 
 write_Stats_in_excel()
 
